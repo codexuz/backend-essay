@@ -30,17 +30,16 @@ app.post('/check', async (req, res)=>{
 
 	 const completion = await openai.completions.create({
     model: "gpt-3.5-turbo-instruct",
-    prompt: `You know everything about scoring IELTS essays. You assess the given essay  ${content} of the given question ${title} in terms of IELTS Writing Criteria and essay sentences count, paragraphs count, and list the used academic words, and provide feedback and show grammar and spelling errors.You must follow this JSON output : 
+    prompt: `Can you check the following IELTS writing Task 2 essay  ${content} of the given question ${title}, give feedback and tell me my mistakes. Also, I want you to mark my essay as an ILETS writing examiner and provide the score breakdown in terms of Task achievement, Lexical Resources, grammatical range and accuracy, and coherence and cohesion, and list the used academic words.You must follow this JSON output : 
       {
-        "Band": "band",
-        "Sentences": "sentences",
-        "Paragraphs": "paragraphs",
+        "Band": "band/9",
         "Feedback": "feedback",
         "TaskAchievement": "taskachievement feedback",
         "CoherenceCohesion": "coherence&cohesion feedback",
         "GrammarRange": "grammarRange feedback",
         "LexicalResource": "lexicalResources feedback",
         "AcademicWord"={["academicWords"]},
+	"Mistakes": "mistakes"
       }
     `,
     max_tokens: 900,

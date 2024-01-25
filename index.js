@@ -4,10 +4,13 @@ const cors = require('cors');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
-const PORT = 5000 
+const http = require("http");
+const server = http.createServer(app);
+const PORT = process.env.PORT || 5001;
+
 
 const openai = new OpenAI({
-	apiKey: "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"
+	apiKey: process.env.Apikey
 });
 
 
@@ -47,7 +50,10 @@ app.post('/check', async (req, res)=>{
    res.json(completion.choices[0].text)
 })
 
-app.listen(PORT, ()=>{
-	console.log(`Server is running on port ${PORT}`)
-})
 
+
+
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

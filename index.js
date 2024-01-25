@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
-const PORT = 5000
+const PORT = 5000 
 
 const openai = new OpenAI({
 	apiKey: process.env.Apikey
@@ -17,7 +17,12 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/', async (req, res)=>{
+app.get('/', async (req, res)=>{
+    res.send('Hello')
+})
+
+
+app.post('/check', async (req, res)=>{
 	const {title, content} = req.body
 
 	 const completion = await openai.completions.create({

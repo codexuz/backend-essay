@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const http = require("http");
 const server = http.createServer(app);
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || "https://backend-essay.up.railway.app/";
 
 
 const openai = new OpenAI({

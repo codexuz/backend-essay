@@ -38,9 +38,8 @@ app.post('/check', async (req, res)=>{
         "CoherenceCohesion": "coherence&cohesion feedback",
         "GrammarRange": "grammarRange feedback",
         "LexicalResource": "lexicalResources feedback",
-        "AcademicWord"={["academicWords"]},
-	"Mistakes": "mistakes"
-      }
+        "AcademicWord"={["academicWords"]}      
+	}
     `,
     max_tokens: 900,
     temperature: 0,

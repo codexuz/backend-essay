@@ -7,7 +7,7 @@ dotenv.config();
 const PORT = 5000 
 
 const openai = new OpenAI({
-	apiKey: process.env.Apikey
+	apiKey: "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"
 });
 
 
